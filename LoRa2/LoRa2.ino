@@ -8,12 +8,9 @@
 
 // Se reemplaza con los datos de la red
 
-/*const char* ssid     = "cooper 5";
-const char* password = "Unr34lT0urn4m3nt19827";*/
-
-
-const char* ssid     = "SGS8+";
-const char* password = "crisant3m0";
+/*Aqui abajo se debe reemplazar el SSID por el nombre de la red y password por la contraseña*/
+const char* ssid     = "";
+const char* password = "";
 
 /*
 // Set your Static IP address
