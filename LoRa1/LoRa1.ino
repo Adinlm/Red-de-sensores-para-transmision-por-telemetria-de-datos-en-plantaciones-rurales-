@@ -5,7 +5,7 @@
 
 
 const char *ssid = "loro";
-const char *password = "pingu4prez";
+const char *password = "cac4tu4";
 #define SS      18
 #define RST     14
 #define DI0     26
