@@ -1,0 +1,9 @@
+
+# Private local configuration and security backups
+**/secrets.h
+**/secrets.local.h
+**/.env
+**/.env.*
+!**/.env.example
+private-backups/
+*CREDENCIALES*PRIVADO*

@@ -1,11 +1,12 @@
+#include "secrets.h"  // Local configuration; excluded from Git.
 #include <WiFi.h>
 #include <WebServer.h>
 #include <SPI.h>
 #include <LoRa.h>
 
 
-const char *ssid = "loro";
-const char *password = "cac4tu4";
+const char *ssid = WIFI_SSID;
+const char *password = WIFI_PASSWORD;
 #define SS      18
 #define RST     14
 #define DI0     26
