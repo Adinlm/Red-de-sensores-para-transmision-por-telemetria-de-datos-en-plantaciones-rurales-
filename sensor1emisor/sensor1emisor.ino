@@ -1,3 +1,4 @@
+#include "secrets.h"  // Local configuration; excluded from Git.
 #include <WiFi.h>
 #include <DHT.h>
 #include <DHT_U.h>
@@ -5,10 +6,10 @@
 
 #define DHTTYPE DHT11
 
-const char *ssid = "loro";
-const char *password = "pingu4prez";
+const char *ssid = WIFI_SSID;
+const char *password = WIFI_PASSWORD;
 
-const int analogInPin = 0;  // Analog input pin al que el potenciometro esta conectado 
+const int analogInPin = 0;  // Analog input pin al que el potenciometro esta conectado
 int sensorValue = 0;        // Valor que lee desde el potenciometro
 int outputValue = 0;
 int outputValue2 = 0; // Valor que se envia al servidor
@@ -34,7 +35,7 @@ void setup() {
   /* Se setea Explicitamente que esp32 sea un cliente WIFI, de otro modo,intentara por default
      actuar como el cliente y el punto de acceso por lo que podria causar problemas de red
      con cualquier otro dispositivo de wifi que existan en mi red WIFI */
-    
+
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
 
@@ -52,7 +53,7 @@ void setup() {
 }
 
 void loop() {
-   
+
   //Lee el valor de la temperatura
   float temperatura = dht.readTemperature();
   float humedad = dht.readHumidity();
@@ -69,10 +70,10 @@ void loop() {
   Serial.print("prueba de humedad =");
   Serial.println(humedad);
   Serial.print("prueba de suelo humedad =");
-  Serial.println(suelohum); 
+  Serial.println(suelohum);
 
 
-  //Usa la clase WIfi para crear conexiones TCP 
+  //Usa la clase WIfi para crear conexiones TCP
   WiFiClient client;
   const char * host = "192.168.4.1";
   const int httpPort = 80;
@@ -90,13 +91,13 @@ void loop() {
  sensor1 += temperatura;
  sensor1 += "&sensor1s=";//humedad del suelo
  sensor1 += suelohum;
- 
-  
+
+
   Serial.print("Pidiendo URL: ");
   Serial.println(sensor1);
   Serial.println();
 
-  
+
   // Esto mandara una peticion al servidor
   client.print(String("GET ") + sensor1 + " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" +

@@ -1,3 +1,4 @@
+#include "secrets.h"  // Local configuration; excluded from Git.
 #include <WiFi.h>
 #include <DHT.h>
 #include <DHT_U.h>
@@ -5,8 +6,8 @@
 
 #define DHTTYPE DHT11
 
-const char *ssid = "loro";
-const char *password = "pingu4prez";
+const char *ssid = WIFI_SSID;
+const char *password = WIFI_PASSWORD;
 
 const int analogInPin = 0;  // Analog input pin al que el potenciometro esta conectado
 int sensorValue = 0;        // Valor que lee desde el potenciometro
